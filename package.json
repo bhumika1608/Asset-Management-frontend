@@ -1,5 +1,5 @@
 {
-   "assets": "https://asset-management-system-feb8.onrender.com/api/assets/" ,
+   "assets": "https://asset-management-system-feb8.onrender.com/admin/assets/" ,
   "type": "module",
   "name": "aviation-asset-system",
   "version": "1.0.0",

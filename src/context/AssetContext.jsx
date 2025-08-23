@@ -8,14 +8,14 @@ export const AssetProvider = ({ children }) => {
 
   // ✅ Fetch assets from Django on load
   useEffect(() => {
-    axios.get('https://asset-management-system-feb8.onrender.com/admin/assets/asset/')
+    axios.get('http://localhost:8000/api/assets/')
       .then((res) => setAssets(res.data))
       .catch((err) => console.error('Error fetching assets:', err));
   }, []);
 
   // ✅ Add asset to DB
   const addAsset = (asset) => {
-    axios.post('https://asset-management-system-feb8.onrender.com/admin/assets/asset/', asset)
+    axios.post('http://localhost:8000/api/assets/', asset)
       .then((res) => setAssets((prev) => [...prev, res.data]))
       .catch((err) => {
         console.error('Failed to add asset:', err);
@@ -27,7 +27,7 @@ export const AssetProvider = ({ children }) => {
   const updateAsset = (index, updatedAsset) => {
     const assetId = assets[index].id;
 
-    axios.put(`https://asset-management-system-feb8.onrender.com/admin/assets/asset/${assetId}/`, updatedAsset)
+    axios.put(`http://localhost:8000/api/assets/${assetId}/`, updatedAsset)
       .then((res) => {
         const newAssets = [...assets];
         newAssets[index] = res.data;
@@ -47,6 +47,7 @@ export const AssetProvider = ({ children }) => {
 };
 
 export const useAssets = () => useContext(AssetContext);
+
 
 
 
